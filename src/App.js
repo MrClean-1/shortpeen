@@ -1,25 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import LinkForm from "./LinkForm";
+import SlugForm from "./SlugForm";
+
+/* TODO
+Create a global submission button
+ */
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div>
+        <LinkForm />
+        <SlugForm />
+      </div>
+      );
 }
 
 export default App;
