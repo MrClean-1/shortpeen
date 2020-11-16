@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Route} from "react-router";
+import {BrowserRouter as Router} from "react-router-dom";
+import ReRoute from './Redirect'
+import InputForm from "./InputForm";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Router>
+          <div>
+              <Route path="/:repo" component={ReRoute} />
+              <Route path="/" component={InputForm}/>
+          </div>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
