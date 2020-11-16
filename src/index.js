@@ -12,7 +12,7 @@ ReactDOM.render(
       <Router>
           <div>
               <Route path="/:repo" component={ReRoute} />
-              <Route path="/" component={InputForm}/>
+              <Route exact path="/" component={InputForm}/>
           </div>
       </Router>
   </React.StrictMode>,

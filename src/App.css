@@ -61,6 +61,12 @@ header {
   caret-color: #f7df1e;
 }
 
+.redirect {
+  font-family: inherit;
+  font-size: large;
+  color: #ffffff;
+}
+
 .input:focus {
   outline: none;
   border-bottom-color: #f7df1e;

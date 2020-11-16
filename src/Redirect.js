@@ -17,8 +17,8 @@ class ReRoute extends React.Component {
     componentDidMount() {
         // create the repo parameter that got passed on mount
         const { repo } = this.props.match.params
-            // call the forward method and then re-render
-            this.forward(repo).then(()=> this.render())
+        // call the forward method and then re-render
+        this.forward(repo.toLowerCase()).then(()=> this.render())
     }
 
     async forward(slug) {
@@ -40,7 +40,7 @@ class ReRoute extends React.Component {
     // basic render method
     render() {
         return (
-            <div>
+            <div className="redirect">
                 {this.state.href}
             </div>
         )
