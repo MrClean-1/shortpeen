@@ -46,6 +46,7 @@ class InputForm extends React.Component {
             validUrl = true
         } catch {
             this.setState({error: 'invalid URL'});
+            this.setState({success: null});
             validUrl = false
         }
         // check for a blank slug
@@ -59,6 +60,7 @@ class InputForm extends React.Component {
         let validSlug = await slugSchema.isValid({slug: this.state.slug});
         if (!validSlug) {
             this.setState({error: 'invalid slug'})
+            this.setState({success: null});
         }
 
         if (validSlug && validUrl) {
@@ -69,10 +71,11 @@ class InputForm extends React.Component {
                     if (docSnapshot.exists) {
                         usersRef.onSnapshot(() => {
                             this.setState({error: 'This slug is already in use'});
+                            this.setState({success: null});
                         });
                     } else {
                         usersRef.set({url: this.state.link});
-                        this.setState({error: null});
+                        this.setState({error: undefined});
                         this.setState({success:
                                 'Short url created: Link: ' + this.state.link + ' Slug: ' + this.state.slug})
                     }
