@@ -26,11 +26,19 @@ header {
 
 .logo {
   max-width: 90%;
-  image-rendering: -moz-crisp-edges;
+  image-rendering: auto;
 }
 
 .error {
   background: #A63446;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.success {
+  background: #5A4F74;
   padding: 0.5rem 1rem;
   color: #ffffff;
   margin-bottom: 1rem;

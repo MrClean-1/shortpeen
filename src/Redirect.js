@@ -31,8 +31,7 @@ class ReRoute extends React.Component {
             this.setState({href: <div><h1>Redirecting</h1></div>})
             window.location = doc.data().url;
         } else {
-            // if that doc does not exist create an alert and return to home page
-            alert('that slug is not in use')
+            // if that doc does not exist return to home page
             this.setState({href: <Redirect to="/"/>})
         }
     }

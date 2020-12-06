@@ -17,7 +17,8 @@ class InputForm extends React.Component {
         super(props);
         this.state = {link: ''};
         this.state = {slug: ''};
-        this.state = {error: null}
+        this.state = {error: null};
+        this.state = {success: null};
 
         this.handleChangeLink = this.handleChangeLink.bind(this);
         this.handleChangeSlug = this.handleChangeSlug.bind(this);
@@ -40,6 +41,7 @@ class InputForm extends React.Component {
         let validUrl
 
         try{
+            // eslint-disable-next-line no-unused-vars
             let url = new URL(this.state.link)
             validUrl = true
         } catch {
@@ -71,7 +73,8 @@ class InputForm extends React.Component {
                     } else {
                         usersRef.set({url: this.state.link});
                         this.setState({error: null});
-                        alert('Short url created: Link: ' + this.state.link + ' Slug: ' + this.state.slug)
+                        this.setState({success:
+                                'Short url created: Link: ' + this.state.link + ' Slug: ' + this.state.slug})
                     }
                 });
         }
@@ -81,7 +84,9 @@ class InputForm extends React.Component {
     render() {
         return (
             <div>
-                {this.state.error === null ? <div/> : <div className="error">{this.state.error}</div>}
+                <img className="logo" src="https://cdn.discordapp.com/attachments/453345490168315908/778109038353055784/logo.png" alt="null"/>
+                {this.state.success === null ? null : <div className="success">{this.state.success}</div>}
+                {this.state.error === undefined ? null : <div className="error">{this.state.error}</div>}
                 <form className="form" onSubmit={this.handleSubmit}>
                     <input className="input" type="link"  value={this.state.link} onChange={this.handleChangeLink} placeholder="enter a url"/>
                     <div/>
